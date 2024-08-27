@@ -1,0 +1,31 @@
+# @user3232/tries-and-paths
+
+## Install
+
+```sh
+npm i @user3232/tries-and-paths@git+file:///home/mk/github/tutorials/tries-and-paths
+# or
+npm i @user3232/tries-and-paths@git+file:///home/mk/github/tutorials/tries-and-paths#semver:1.0.1
+```
+
+## Use
+
+```ts
+import {MatchPrefixes, MatchPostfixes} from '@user3232/tries-and-paths'
+
+console.log(new MatchPrefixes([
+    'hellow',
+    'hell',
+    'help',
+    '',
+]).bestPrefixOf('hellow/index.js'))
+// hellow
+
+console.log(new MatchPostfixes([
+    '.js',
+    '.html.js',
+    '',
+]).bestPostfixOf('hellow/index.html.js'))
+// html.js
+
+```

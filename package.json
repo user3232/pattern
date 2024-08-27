@@ -1,0 +1,39 @@
+{
+  "name": "@user3232/tries-and-paths",
+  "version": "1.0.1",
+  "description": "Trie based string prefixes/postfixes matching.",
+  "keywords": ["trie", "prefix", "postfix"],
+  "repository": {
+    "type": "git",
+    "url": "git+file:///home/mk/github/tutorials/tries-and-paths"
+  },
+  "author": "kolodziej.michal _at_ gmail.com",
+  "license": "ISC",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "package.json",
+    "README"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "esbuild": "^0.23.1",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "test": "tsx --test test/*.test.ts",
+    "build-types": "tsc -b",
+    "build-js": "esbuild src/index.ts --bundle --outdir=lib --charset=utf8 --platform=node --format=esm --packages=external --analyze",
+    "build": "npm run build-types && npm run build-js",
+    "build-clean": "rm -rf lib && npm run build"
+  },
+  "dependencies": {
+  }
+}
