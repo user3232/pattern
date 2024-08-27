@@ -2,7 +2,7 @@
  * Stores string postfixes and allows effitient
  * postfixes matching to arbitrary string.
  */
-export declare class MathPostfixes {
+export declare class MatchPostfixes {
     #private;
     /**
      * Creates effitient store for postfixes and

@@ -6,7 +6,7 @@ import { createTrie, longestPrefixesInTrie, type Trie } from './Trie.js'
  * Stores string postfixes and allows effitient
  * postfixes matching to arbitrary string.
  */
-export class MathPostfixes {
+export class MatchPostfixes {
     #reversedTrie: Trie
     #reversedPrefixes: string[]
 
