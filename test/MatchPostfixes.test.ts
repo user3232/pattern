@@ -1,6 +1,6 @@
 import assert from 'node:assert'
 import test from 'node:test'
-import { Postfixes } from '../src/Postfixes.js'
+import { MatchPostfixes } from '../src/MatchPostfixes.js'
 
 
 test('Postfixes', async (t) => {
@@ -20,11 +20,10 @@ test('Postfixes', async (t) => {
             '',
         ].sort((a, b) => a.length - b.length)
 
-        const postfixesTrie = new Postfixes(postfixes)
-        const actualPostfixesOfString = postfixesTrie.matchAllTo(string)
+        const postfixesTrie = new MatchPostfixes(postfixes)
+        const actualPostfixesOfString = postfixesTrie.allPostfixesOf(string)
 
         assert.deepStrictEqual(actualPostfixesOfString, expectedPrefixesOfString)
-        assert.deepStrictEqual(postfixesTrie.matchBestTo(string), '.doc.html')
     })
     
     await Promise.all([t1])

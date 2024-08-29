@@ -6,15 +6,15 @@
  * 
  * ```ts
  * 
- * console.log(getPathFullExtension('/src/.hide/index.doc.html')
+ * console.log(pathFullExtension('/src/.hide/index.doc.html')
  * // ".doc.html"
- * console.log(getPathFullExtension('/src/.hide/index')
+ * console.log(pathFullExtension('/src/.hide/index')
  * // ""
- * console.log(getPathFullExtension('/src/.hide/index.')
+ * console.log(pathFullExtension('/src/.hide/index.')
  * // "."
  * ```
  */
-export function getPathFullExtension(
+export function pathFullExtension(
     /**
      * Path to analize - string containing `/` and `.` characters, 
      * e.g. `/src/.hide/index.doc.html`, `index.html`.

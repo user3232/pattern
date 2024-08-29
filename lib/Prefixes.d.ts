@@ -1,29 +1,38 @@
 /**
- * Stores string prefixes and allows effitient
- * prefixes matching to arbitrary string.
+ * Prefixes container with efficient (Trie) matching alghoritm.
  */
-export declare class MatchPrefixes {
+export declare class Prefixes {
     #private;
     /**
-     * Creates effitient store for prefixes and
-     * prefixes matching operations.
+     * Creates prefixes container.
      */
     constructor(
     /**
-     * Prefixes to store.
+     * Prefixes to add to container.
      */
-    prefixes: string[]);
+    prefixes?: string[]);
     /**
-     * Returns all prefixes matching given string,
-     * sorted from shortest to longest.
+     * Adds prefix to container.
      */
-    allPrefixesOf(string: string): string[];
+    add(
     /**
-     * Returns longest matching prefix or `undefined` if none found.
+     * Prefix to add to container.
      */
-    bestPrefixOf(string: string): string | undefined;
+    prefix: string): void;
     /**
-     * Returns stored prefixes as provided in constructor.
+     * Returns all prefixes matching given string, from shortest to longest.
      */
-    allPrefixes(): string[];
+    matchAllTo(
+    /**
+     * String to match prefixes to.
+     */
+    string: string): string[];
+    /**
+     * Returns longest prefix matching given string.
+     */
+    matchBestTo(
+    /**
+     * String to match prefixes to.
+     */
+    string: string): string | undefined;
 }

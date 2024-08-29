@@ -61,6 +61,10 @@ trie: Trie,
  */
 prefix?: string): string[];
 /**
+ * Checks if provided string is fully in trie.
+ */
+export declare function isStringInTrie(trie: Trie, string: string): boolean;
+/**
  * Enumerates all prefixes of string taken from trie.
  * Shortest prefix first.
  */

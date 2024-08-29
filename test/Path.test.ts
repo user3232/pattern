@@ -1,6 +1,6 @@
 import assert from 'node:assert'
 import test from 'node:test'
-import { getPathFullExtension } from '../src/Path.js'
+import { pathFullExtension } from '../src/Path.js'
 
 
 test('Path operations', async (t) => {
@@ -10,7 +10,7 @@ test('Path operations', async (t) => {
 
         const path = 'index.doc.html'
         const expectedFullExtension = '.doc.html'
-        const actualFullExtension = getPathFullExtension(path)
+        const actualFullExtension = pathFullExtension(path)
 
         assert.deepStrictEqual(actualFullExtension, expectedFullExtension)
     }))
@@ -19,7 +19,7 @@ test('Path operations', async (t) => {
 
         const path = '/src/.del/index.doc.html'
         const expectedFullExtension = '.doc.html'
-        const actualFullExtension = getPathFullExtension(path)
+        const actualFullExtension = pathFullExtension(path)
 
         assert.deepStrictEqual(actualFullExtension, expectedFullExtension)
     }))
@@ -28,7 +28,7 @@ test('Path operations', async (t) => {
 
         const path = '/src/.del/index.html'
         const expectedFullExtension = '.html'
-        const actualFullExtension = getPathFullExtension(path)
+        const actualFullExtension = pathFullExtension(path)
 
         assert.deepStrictEqual(actualFullExtension, expectedFullExtension)
     }))
@@ -37,7 +37,7 @@ test('Path operations', async (t) => {
 
         const path = '/src/.del/index.'
         const expectedFullExtension = '.'
-        const actualFullExtension = getPathFullExtension(path)
+        const actualFullExtension = pathFullExtension(path)
 
         assert.deepStrictEqual(actualFullExtension, expectedFullExtension)
     }))
@@ -46,7 +46,7 @@ test('Path operations', async (t) => {
 
         const path = '/src/.del/index'
         const expectedFullExtension = ''
-        const actualFullExtension = getPathFullExtension(path)
+        const actualFullExtension = pathFullExtension(path)
 
         assert.deepStrictEqual(actualFullExtension, expectedFullExtension)
     }))
@@ -55,7 +55,7 @@ test('Path operations', async (t) => {
 
         const path = 'index'
         const expectedFullExtension = ''
-        const actualFullExtension = getPathFullExtension(path)
+        const actualFullExtension = pathFullExtension(path)
 
         assert.deepStrictEqual(actualFullExtension, expectedFullExtension)
     }))

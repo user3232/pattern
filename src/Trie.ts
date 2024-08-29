@@ -98,6 +98,24 @@ export function allStringsInTrie(
 
 
 /**
+ * Checks if provided string is fully in trie.
+ */
+export function isStringInTrie(
+    trie: Trie,
+    string: string
+): boolean {
+    let maybeTrie
+    for(const character of string) {
+        maybeTrie = trie.characters[character]
+        if(maybeTrie === undefined) {
+            return false
+        }
+    }
+    return maybeTrie !== undefined && maybeTrie.isEnd === true
+}
+
+
+/**
  * Enumerates all prefixes of string taken from trie.
  * Shortest prefix first.
  */

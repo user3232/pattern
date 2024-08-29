@@ -11,21 +11,21 @@ npm i @user3232/tries-and-paths@git+file:///home/mk/github/tutorials/tries-and-p
 ## Use
 
 ```ts
-import {MatchPrefixes, MatchPostfixes} from '@user3232/tries-and-paths'
+import {Prefixes, Postfixes} from '@user3232/tries-and-paths'
 
-console.log(new MatchPrefixes([
+console.log(new Prefixes([
     'hellow',
     'hell',
     'help',
     '',
-]).bestPrefixOf('hellow/index.js'))
+]).matchBestTo('hellow/index.js'))
 // hellow
 
-console.log(new MatchPostfixes([
+console.log(new Postfixes([
     '.js',
     '.html.js',
     '',
-]).bestPostfixOf('hellow/index.html.js'))
+]).matchBestTo('hellow/index.html.js'))
 // html.js
 
 ```

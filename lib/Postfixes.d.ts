@@ -1,29 +1,38 @@
 /**
- * Stores string postfixes and allows effitient
- * postfixes matching to arbitrary string.
+ * Postfixes container with efficient (Trie) matching alghoritm.
  */
-export declare class MatchPostfixes {
+export declare class Postfixes {
     #private;
     /**
-     * Creates effitient store for postfixes and
-     * postfixes matching operations.
+     * Creates postfixes container.
      */
     constructor(
     /**
-     * Prefixes to store.
+     * Postfixes to add to container.
      */
-    prefixes: string[]);
+    postfixes?: string[]);
     /**
-     * Returns all postfixes matching given string,
-     * sorted from shortest to longest.
+     * Adds postfix to container.
      */
-    allPostfixesOf(string: string): string[];
+    add(
     /**
-     * Returns longest matching postfix or `undefined` if none found.
+     * Postfix to add to container.
      */
-    bestPostfixOf(string: string): string | undefined;
+    postfix: string): void;
     /**
-     * Returns stored postfixes as provided in constructor.
+     * Returns all postfixes matching given string, from shortest to longest.
      */
-    allPostfixes(): string[];
+    matchAllTo(
+    /**
+     * String to match postfixes to.
+     */
+    string: string): string[];
+    /**
+     * Returns longest postfix matching given string.
+     */
+    matchBestTo(
+    /**
+     * String to match postfixes to.
+     */
+    string: string): string | undefined;
 }

@@ -1,53 +1,67 @@
-import { reverseString } from './String.js'
-import { createTrie, longestPrefixesInTrie, type Trie } from './Trie.js'
+import { 
+    addValueToValuesTrie, 
+    valuesOfAllValuesTriePrefixesMatchingString, 
+    ValuesTrie, 
+    valueOfBestValuesTriePrefixMatchingString, 
+    createEmptyValuesTrie 
+} from './ValuesTrie.js';
+import { reverse } from './String.js';
 
 
 /**
- * Stores string postfixes and allows effitient
- * postfixes matching to arbitrary string.
+ * Postfixes container with efficient (Trie) matching alghoritm.
  */
-export class MatchPostfixes {
-    #reversedTrie: Trie
-    #reversedPrefixes: string[]
+export class Postfixes {
+    #reversedTrie: ValuesTrie<string>
 
     /**
-     * Creates effitient store for postfixes and 
-     * postfixes matching operations.
+     * Creates postfixes container.
      */
     constructor(
         /**
-         * Prefixes to store.
+         * Postfixes to add to container.
          */
-        prefixes: string[]
+        postfixes?: string[]
     ) {
-        this.#reversedPrefixes = prefixes.map(reverseString)
-        this.#reversedTrie = createTrie(this.#reversedPrefixes)
+        this.#reversedTrie = createEmptyValuesTrie()
+        for(const postfix of postfixes ?? []) {
+            addValueToValuesTrie(this.#reversedTrie, reverse(postfix), postfix)
+        }
     }
 
     /**
-     * Returns all postfixes matching given string,
-     * sorted from shortest to longest.
+     * Adds postfix to container.
      */
-    allPostfixesOf(string: string) {
-        return longestPrefixesInTrie(
-            this.#reversedTrie, 
-            reverseString(string),
-        ).map(reverseString)
+    add(
+        /**
+         * Postfix to add to container.
+         */
+        postfix: string
+    ) {
+        addValueToValuesTrie(this.#reversedTrie, reverse(postfix), postfix)
     }
 
     /**
-     * Returns longest matching postfix or `undefined` if none found.
+     * Returns all postfixes matching given string, from shortest to longest.
      */
-    bestPostfixOf(string: string): string | undefined {
-        const matchingPrefixes = this.allPostfixesOf(string)
-        return matchingPrefixes[matchingPrefixes.length - 1]
+    matchAllTo(
+        /**
+         * String to match postfixes to.
+         */
+        string: string
+    ) {
+        return valuesOfAllValuesTriePrefixesMatchingString(this.#reversedTrie, reverse(string))
     }
 
     /**
-     * Returns stored postfixes as provided in constructor.
+     * Returns longest postfix matching given string.
      */
-    allPostfixes() {
-        return this.#reversedPrefixes.map(reverseString)
+    matchBestTo(
+        /**
+         * String to match postfixes to.
+         */
+        string: string
+    ) {
+        return valueOfBestValuesTriePrefixMatchingString(this.#reversedTrie, reverse(string))
     }
 }
-

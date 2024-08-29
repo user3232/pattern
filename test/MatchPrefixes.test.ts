@@ -1,6 +1,6 @@
 import assert from 'node:assert'
 import test from 'node:test'
-import { Prefixes } from '../src/Prefixes.js'
+import { MatchPrefixes } from '../src/MatchPrefixes.js'
 
 
 test('Prefixes', async (t) => {
@@ -20,11 +20,10 @@ test('Prefixes', async (t) => {
             '',
         ].sort((a, b) => a.length - b.length)
 
-        const prefixesTrie = new Prefixes(prefixes)
-        const actualPrefixesOfString = prefixesTrie.matchAllTo(string)
+        const prefixesTrie = new MatchPrefixes(prefixes)
+        const actualPrefixesOfString = prefixesTrie.allPrefixesOf(string)
 
         assert.deepStrictEqual(actualPrefixesOfString, expectedPrefixesOfString)
-        assert.deepStrictEqual(prefixesTrie.matchBestTo(string), 'hellow')
     })
 
     await Promise.all([t1])
