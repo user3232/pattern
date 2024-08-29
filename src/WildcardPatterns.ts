@@ -28,7 +28,7 @@ export class WildcardPatterns {
         this.#prefixToPostfixes = {}
 
         for(const pattern of patterns ?? []) {
-            addPatternToWildcardPatternsTies({
+            addPatternToWildcardPatternsStructure({
                 pattern,
                 prefixes:                   this.#prefixes,
                 prefixToPostfixes:          this.#prefixToPostfixes,
@@ -48,7 +48,7 @@ export class WildcardPatterns {
          */
         pattern: string
     ) {
-        addPatternToWildcardPatternsTies({
+        addPatternToWildcardPatternsStructure({
             pattern,
             prefixes:                   this.#prefixes,
             prefixToPostfixes:          this.#prefixToPostfixes,
@@ -126,7 +126,7 @@ export class WildcardPatterns {
  * 
  * ```
  */
-function addPatternToWildcardPatternsTies({
+function addPatternToWildcardPatternsStructure({
     pattern,
     prefixToPostfixesToPattern,
     exacts,
