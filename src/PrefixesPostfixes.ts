@@ -55,8 +55,8 @@ export class PrefixesPostfixes {
         pattern: PrefixPostfix
     ): void {
         addPatternToPrefixesPostfixesStructure({
-            prefix:                     pattern.postfix,
-            postfix:                    pattern.prefix,
+            prefix:                     pattern.prefix,
+            postfix:                    pattern.postfix,
             prefixes:                   this.#prefixes,
             prefixToPostfixes:          this.#prefixToPostfixes,
         })

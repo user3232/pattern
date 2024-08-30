@@ -15,6 +15,7 @@ test('PrefixesPostfixes', async (t) => {
             {prefix: 'he',  postfix: 'w-you'},
             {prefix: '',    postfix: ''},
             {prefix: '',    postfix: '-you'},
+            {prefix: './dist/',    postfix: '.js'},
         ]
 
         const patterns = new PrefixesPostfixes(prefixesPostfixes)
@@ -22,6 +23,7 @@ test('PrefixesPostfixes', async (t) => {
         assert.deepStrictEqual(patterns.matchBestTo('hellow-you'), {prefix: 'hel', postfix: 'you'})
         assert.deepStrictEqual(patterns.matchBestTo('asdfhellow-you'), {prefix: '',    postfix: '-you'})
         assert.deepStrictEqual(patterns.matchBestTo('asdfhellow-you3'), {prefix: '',    postfix: ''})
+        assert.deepStrictEqual(patterns.matchBestTo('./dist/index.js'), {prefix: './dist/',    postfix: '.js'})
     }))
 
     await Promise.all(tests)
