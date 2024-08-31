@@ -1,6 +1,6 @@
 {
   "name": "@user3232/tries-and-paths",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Trie based string prefixes/postfixes matching.",
   "keywords": ["trie", "prefix", "postfix", "pattern", "wildcard"],
   "repository": {

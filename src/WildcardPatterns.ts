@@ -85,6 +85,43 @@ export class WildcardPatterns {
     
         return bestPattern
     }
+
+    /**
+     * Returns exact or (if no exact) longest (containing `*`) 
+     * pattern matching given string.
+     * 
+     * Returns `undefined` when no pattern matches.
+     */
+    matchBestToEx(
+        /**
+         * String to match patterns to.
+         */
+        string: string
+    ) {
+
+        if(this.#exacts.has(string)) {
+            return string
+        }
+    
+        let lastBestPattern: {
+            prefix: string,
+            postfix: string,
+            matched: string,
+            
+        } | undefined = undefined
+        for(const matchingPrefix of this.#prefixes.matchAllTo(string)) {
+            const matchingPostfix = this.#prefixToPostfixes[matchingPrefix]!.matchBestTo(string)
+            if(matchingPostfix !== undefined) {
+                lastBestPattern = {
+                    prefix: matchingPrefix,
+                    postfix: matchingPostfix,
+                    matched: string.substring(matchingPrefix.length, string.length - matchingPostfix.length)
+                }
+            }
+        }
+    
+        return lastBestPattern
+    }
 }
 
 

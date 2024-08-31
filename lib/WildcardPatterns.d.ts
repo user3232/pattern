@@ -32,4 +32,19 @@ export declare class WildcardPatterns {
      * String to match patterns to.
      */
     string: string): string | undefined;
+    /**
+     * Returns exact or (if no exact) longest (containing `*`)
+     * pattern matching given string.
+     *
+     * Returns `undefined` when no pattern matches.
+     */
+    matchBestToEx(
+    /**
+     * String to match patterns to.
+     */
+    string: string): string | {
+        prefix: string;
+        postfix: string;
+        matched: string;
+    } | undefined;
 }
