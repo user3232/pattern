@@ -29,6 +29,7 @@ test('WildcardPatterns', async (t) => {
         assert.deepStrictEqual(
             patterns.matchBestToEx('hellow-you'), 
             {
+                pattern: 'hel*you',
                 prefix: 'hel',
                 postfix: 'you',
                 matched: 'low-'
@@ -38,6 +39,7 @@ test('WildcardPatterns', async (t) => {
         assert.deepStrictEqual(
             patterns.matchBestToEx(''), 
             {
+                pattern: '',
                 prefix: '',
                 postfix: '',
                 matched: ''
@@ -47,6 +49,7 @@ test('WildcardPatterns', async (t) => {
         assert.deepStrictEqual(
             patterns.matchBestToEx('help'), 
             {
+                pattern: 'help',
                 prefix: 'help',
                 postfix: '',
                 matched: ''

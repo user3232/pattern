@@ -99,6 +99,7 @@ export class WildcardPatterns {
          */
         string: string
     ): {
+        pattern: string,
         prefix: string,
         postfix: string,
         matched: string,
@@ -106,6 +107,7 @@ export class WildcardPatterns {
 
         if(this.#exacts.has(string)) {
             return {
+                pattern: string,
                 prefix: string,
                 postfix: '',
                 matched: '',
@@ -113,15 +115,17 @@ export class WildcardPatterns {
         }
     
         let lastBestPattern: {
+            pattern: string,
             prefix: string,
             postfix: string,
             matched: string,
-            
         } | undefined = undefined
+        
         for(const matchingPrefix of this.#prefixes.matchAllTo(string)) {
             const matchingPostfix = this.#prefixToPostfixes[matchingPrefix]!.matchBestTo(string)
             if(matchingPostfix !== undefined) {
                 lastBestPattern = {
+                    pattern: this.#db[matchingPrefix]![matchingPostfix]!,
                     prefix: matchingPrefix,
                     postfix: matchingPostfix,
                     matched: string.substring(matchingPrefix.length, string.length - matchingPostfix.length)

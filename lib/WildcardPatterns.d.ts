@@ -44,6 +44,7 @@ export declare class WildcardPatterns {
      * String to match patterns to.
      */
     string: string): {
+        pattern: string;
         prefix: string;
         postfix: string;
         matched: string;
