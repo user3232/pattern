@@ -20,7 +20,7 @@ export function pathFullExtension(
      * e.g. `/src/.hide/index.doc.html`, `index.html`.
      */
     path: string
-) {
+): string {
     const lastSlashIndex = path.lastIndexOf('/')
     const firstDotIndex = path.indexOf('.', lastSlashIndex)
     return firstDotIndex === -1 

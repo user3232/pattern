@@ -37,7 +37,7 @@ export class Postfixes {
          * Postfix to add to container.
          */
         postfix: string
-    ) {
+    ): void {
         addValueToValuesTrie(this.#reversedTrie, reverse(postfix), postfix)
     }
 
@@ -49,7 +49,7 @@ export class Postfixes {
          * String to match postfixes to.
          */
         string: string
-    ) {
+    ): string[] {
         return valuesOfAllValuesTriePrefixesMatchingString(this.#reversedTrie, reverse(string))
     }
 
@@ -61,7 +61,7 @@ export class Postfixes {
          * String to match postfixes to.
          */
         string: string
-    ) {
+    ): string | undefined {
         return valueOfBestValuesTriePrefixMatchingString(this.#reversedTrie, reverse(string))
     }
 }

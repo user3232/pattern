@@ -36,7 +36,7 @@ export class Prefixes {
          * Prefix to add to container.
          */
         prefix: string
-    ) {
+    ): void {
         addValueToValuesTrie(this.#trie, prefix, prefix)
     }
 
@@ -48,7 +48,7 @@ export class Prefixes {
          * String to match prefixes to.
          */
         string: string
-    ) {
+    ): string[] {
         return valuesOfAllValuesTriePrefixesMatchingString(this.#trie, string)
     }
 
@@ -60,7 +60,7 @@ export class Prefixes {
          * String to match prefixes to.
          */
         string: string
-    ) {
+    ): string | undefined {
         return valueOfBestValuesTriePrefixMatchingString(this.#trie, string)
     }
 }

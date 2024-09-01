@@ -41,7 +41,7 @@ export class DirPatterns {
          * Pattern to add to container.
          */
         pattern: string
-    ) {
+    ): void {
         addPatternToPrefixPatterns({
             pattern,
             prefixes: this.#prefixes,
@@ -60,7 +60,7 @@ export class DirPatterns {
          * String to match patterns to.
          */
         string: string
-    ) {
+    ): string | undefined {
         if(this.#exacts.has(string)) {
             return string
         }
@@ -92,7 +92,7 @@ function addPatternToPrefixPatterns({
 
 function patternToDirOrExact(
     pattern: string
-) {
+): 'dir' | 'exact' {
     if(pattern.endsWith('/')) {
         return 'dir' as const
     }

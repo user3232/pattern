@@ -32,7 +32,26 @@ test('WildcardPatterns', async (t) => {
                 prefix: 'hel',
                 postfix: 'you',
                 matched: 'low-'
-            })
+            }
+        )
+
+        assert.deepStrictEqual(
+            patterns.matchBestToEx(''), 
+            {
+                prefix: '',
+                postfix: '',
+                matched: ''
+            }
+        )
+
+        assert.deepStrictEqual(
+            patterns.matchBestToEx('help'), 
+            {
+                prefix: 'help',
+                postfix: '',
+                matched: ''
+            }
+        )
     }))
 
     await Promise.all(tests)

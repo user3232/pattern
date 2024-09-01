@@ -28,7 +28,7 @@ export class MatchPostfixes {
      * Returns all postfixes matching given string,
      * sorted from shortest to longest.
      */
-    allPostfixesOf(string: string) {
+    allPostfixesOf(string: string): string[] {
         return longestPrefixesInTrie(
             this.#reversedTrie, 
             reverseString(string),
@@ -46,7 +46,7 @@ export class MatchPostfixes {
     /**
      * Returns stored postfixes as provided in constructor.
      */
-    allPostfixes() {
+    allPostfixes(): string[] {
         return this.#reversedPrefixes.map(reverseString)
     }
 }

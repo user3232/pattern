@@ -34,7 +34,8 @@ export declare class WildcardPatterns {
     string: string): string | undefined;
     /**
      * Returns exact or (if no exact) longest (containing `*`)
-     * pattern matching given string.
+     * pattern matching given string. For exact match `prefix` is
+     * provided `string`, `postfix` and `matched` are empty strings.
      *
      * Returns `undefined` when no pattern matches.
      */
@@ -42,7 +43,7 @@ export declare class WildcardPatterns {
     /**
      * String to match patterns to.
      */
-    string: string): string | {
+    string: string): {
         prefix: string;
         postfix: string;
         matched: string;

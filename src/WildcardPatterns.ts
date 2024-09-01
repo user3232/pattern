@@ -47,7 +47,7 @@ export class WildcardPatterns {
          * Pattern to add to container.
          */
         pattern: string
-    ) {
+    ): void {
         addPatternToWildcardPatternsStructure({
             pattern,
             prefixes:                   this.#prefixes,
@@ -69,7 +69,7 @@ export class WildcardPatterns {
          * String to match patterns to.
          */
         string: string
-    ) {
+    ): string | undefined {
 
         if(this.#exacts.has(string)) {
             return string
@@ -88,7 +88,8 @@ export class WildcardPatterns {
 
     /**
      * Returns exact or (if no exact) longest (containing `*`) 
-     * pattern matching given string.
+     * pattern matching given string. For exact match `prefix` is
+     * provided `string`, `postfix` and `matched` are empty strings.
      * 
      * Returns `undefined` when no pattern matches.
      */
@@ -97,10 +98,18 @@ export class WildcardPatterns {
          * String to match patterns to.
          */
         string: string
-    ) {
+    ): {
+        prefix: string,
+        postfix: string,
+        matched: string,
+    } | undefined {
 
         if(this.#exacts.has(string)) {
-            return string
+            return {
+                prefix: string,
+                postfix: '',
+                matched: '',
+            }
         }
     
         let lastBestPattern: {

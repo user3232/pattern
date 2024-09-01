@@ -27,14 +27,18 @@ export class MatchPrefixes {
      * Returns all prefixes matching given string,
      * sorted from shortest to longest.
      */
-    allPrefixesOf(string: string) {
+    allPrefixesOf(
+        string: string
+    ): string[] {
         return longestPrefixesInTrie(this.#trie, string)
     }
 
     /**
      * Returns longest matching prefix or `undefined` if none found.
      */
-    bestPrefixOf(string: string): string | undefined {
+    bestPrefixOf(
+        string: string
+    ): string | undefined {
         const matchingPrefixes = this.allPrefixesOf(string)
         return matchingPrefixes[matchingPrefixes.length - 1]
     }
@@ -42,7 +46,7 @@ export class MatchPrefixes {
     /**
      * Returns stored prefixes as provided in constructor.
      */
-    allPrefixes() {
-        return this.#prefixes
+    allPrefixes(): string[] {
+        return [...this.#prefixes]
     }
 }
