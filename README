@@ -1,17 +1,18 @@
-# @user3232/tries-and-paths
+# @user3232/pattern
 
 ## Install
 
 ```sh
-npm i @user3232/tries-and-paths@git+file:///home/mk/github/tutorials/tries-and-paths
-# or
-npm i @user3232/tries-and-paths@git+file:///home/mk/github/tutorials/tries-and-paths#semver:latest
+npm i user3232/pattern#semver:latest
+npm i @abc/pattern@github:user3232/pattern#semver:latest
+npm i @user3232/pattern@git+https://github.com/user3232/pattern.git
+npm i @user3232/pattern@git+git+https://github.com/user3232/pattern.git#semver:latest
 ```
 
 ## Use
 
 ```ts
-import {Prefixes, Postfixes} from '@user3232/tries-and-paths'
+import {Prefixes, Postfixes} from '@user3232/pattern'
 
 console.log(new Prefixes([
     'hellow',

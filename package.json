@@ -1,11 +1,11 @@
 {
-  "name": "@user3232/tries-and-paths",
-  "version": "1.3.1",
-  "description": "Trie based string prefixes/postfixes matching.",
+  "name": "@user3232/pattern",
+  "version": "1.4.0",
+  "description": "Trie based string prefixes/postfixes/patterns matching.",
   "keywords": ["trie", "prefix", "postfix", "pattern", "wildcard"],
   "repository": {
     "type": "git",
-    "url": "git+file:///home/mk/github/tutorials/tries-and-paths"
+    "url": "https://github.com/user3232/pattern"
   },
   "author": "kolodziej.michal _at_ gmail.com",
   "license": "ISC",
@@ -14,7 +14,8 @@
     ".": {
       "types": "./lib/index.d.ts",
       "import": "./lib/index.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "lib",
